@@ -55,7 +55,7 @@ function MatchCard({ team, now }: { team: TeamMatches; now: number | null }) {
 
     return (
         <div className="relative overflow-hidden rounded-2xl bg-virtus-blue p-6 text-white shadow-xl md:p-8">
-            <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-virtus-yellow/15" aria-hidden="true" />
+            <svg className="pointer-events-none absolute -right-12 -top-12 h-52 w-52 text-virtus-yellow opacity-25" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><circle cx="50" cy="50" r="46" /><line x1="4" y1="50" x2="96" y2="50" /><line x1="50" y1="4" x2="50" y2="96" /><path d="M 17 17 C 38 36 38 64 17 83" /><path d="M 83 17 C 62 36 62 64 83 83" /></svg>
             <div className="relative grid items-center gap-6 md:grid-cols-[1.4fr_1fr]">
                 <div>
                     <div className="mb-3 flex items-center gap-3">
