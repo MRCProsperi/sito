@@ -98,7 +98,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                         {/* Dynamic Roster Section */}
                         {page.meta.roster && (page.meta.roster as Person[]).length > 0 && (
                             <div>
-                                <h2 className="text-3xl font-display font-bold text-virtus-blue uppercase tracking-tight mb-6 flex items-center">
+                                <h2 className="section-title mb-6 flex items-center">
                                     <span className="w-2 h-8 bg-virtus-yellow mr-4"></span>
                                     {page.meta.category === 'Minibasket' ? 'Miniatleti' : 'Roster'}
                                 </h2>
@@ -133,7 +133,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                                                     <div className="w-1/2 p-4 flex flex-col justify-between">
                                                         <div className="flex justify-between items-start mb-1">
                                                             <div className="min-w-0 flex-1 overflow-visible">
-                                                                <h3 className="font-bold text-base md:text-lg text-virtus-blue uppercase leading-tight group-hover:text-virtus-yellow transition-colors break-words">
+                                                                <h3 className="font-bold text-base md:text-lg text-virtus-blue uppercase leading-tight group-hover:text-virtus-gold transition-colors break-words">
                                                                     {player.name}
                                                                 </h3>
                                                                 <p className="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-tight">{player.position}</p>
@@ -167,7 +167,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                         {/* Dynamic Staff Section */}
                         {page.meta.staff && (page.meta.staff as Person[]).length > 0 && (
                             <div>
-                                <h2 className="text-3xl font-display font-bold text-virtus-blue uppercase tracking-tight mb-6 flex items-center">
+                                <h2 className="section-title mb-6 flex items-center">
                                     <span className="w-2 h-8 bg-virtus-yellow mr-4"></span>
                                     Staff Tecnico
                                 </h2>
@@ -183,7 +183,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                                                     )}
                                                 </div>
                                                 <div>
-                                                    <div className="text-xs font-bold text-virtus-yellow uppercase tracking-wider">{member.role}</div>
+                                                    <div className="text-xs font-bold text-virtus-gold uppercase tracking-wider">{member.role}</div>
                                                     <div className="font-bold text-lg text-gray-800">{member.name}</div>
                                                 </div>
                                             </div>

@@ -20,10 +20,10 @@ export default function LatestNews({ items }: { items: LatestNewsItem[] }) {
     return (
         <section aria-labelledby="ultime-news">
             <div className="mb-6 flex items-end justify-between gap-4">
-                <h2 id="ultime-news" className="text-3xl font-display font-bold uppercase tracking-tight text-virtus-blue">
+                <h2 id="ultime-news" className="section-title">
                     Ultime news
                 </h2>
-                <Link href="/news" className="inline-flex items-center gap-1 text-sm font-bold uppercase tracking-wide text-virtus-blue transition-colors hover:text-virtus-yellow">
+                <Link href="/news" className="inline-flex items-center gap-1 text-sm font-bold uppercase tracking-wide text-virtus-blue transition-colors hover:text-virtus-gold">
                     Tutte le news <ArrowRight className="h-4 w-4" />
                 </Link>
             </div>
@@ -43,13 +43,13 @@ export default function LatestNews({ items }: { items: LatestNewsItem[] }) {
                                 <Calendar className="h-3.5 w-3.5" /> {dateLabel(item.date)}
                             </span>
                         </div>
-                        <h3 className="line-clamp-3 font-display text-lg font-bold uppercase leading-tight tracking-tight text-virtus-blue transition-colors group-hover:text-virtus-yellow">
+                        <h3 className="card-title line-clamp-3 transition-colors group-hover:text-virtus-gold">
                             {item.title}
                         </h3>
                         {item.description && (
                             <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-gray-600">{item.description}</p>
                         )}
-                        <span className="mt-auto inline-flex items-center gap-1 pt-4 text-xs font-bold uppercase tracking-wide text-virtus-blue group-hover:text-virtus-yellow">
+                        <span className="mt-auto inline-flex items-center gap-1 pt-4 text-xs font-bold uppercase tracking-wide text-virtus-blue group-hover:text-virtus-gold">
                             Leggi <ArrowRight className="h-3.5 w-3.5" />
                         </span>
                     </Link>

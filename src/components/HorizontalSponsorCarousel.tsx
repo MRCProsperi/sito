@@ -32,7 +32,7 @@ export default function HorizontalSponsorCarousel({ sponsors = [] }: { sponsors:
                 key={currentIndex}
                 className="w-full h-full flex items-center justify-center animate-in fade-in zoom-in duration-700"
             >
-                <div className="bg-white rounded p-1 flex items-center justify-center h-40 w-full max-w-2xl border border-gray-100 hover:border-virtus-yellow transition-colors group overflow-hidden relative shadow-sm">
+                <div className="bg-white rounded-xl flex items-center justify-center h-40 w-full max-w-2xl border border-gray-100 hover:border-virtus-yellow transition-colors group overflow-hidden relative shadow-sm">
                     {currentSponsor.logo ? (
                         currentSponsor.url ? (
                             <a
@@ -45,7 +45,7 @@ export default function HorizontalSponsorCarousel({ sponsors = [] }: { sponsors:
                                     src={currentSponsor.logo}
                                     alt={currentSponsor.name}
                                     fill
-                                    className="object-contain p-2"
+                                    className="object-contain p-4 mix-blend-multiply"
                                     sizes="(max-width: 1024px) 100vw, 800px"
                                 />
                             </a>
@@ -54,7 +54,7 @@ export default function HorizontalSponsorCarousel({ sponsors = [] }: { sponsors:
                                 src={currentSponsor.logo}
                                 alt={currentSponsor.name}
                                 fill
-                                className="object-contain p-2"
+                                className="object-contain p-4 mix-blend-multiply"
                                 sizes="(max-width: 1024px) 100vw, 800px"
                             />
                         )

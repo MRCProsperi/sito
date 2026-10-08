@@ -24,10 +24,10 @@ export default function CalendarWidget({ events, teamSlug, title = "Prossime Gar
         return (
             <section className="bg-white rounded-lg p-6 shadow-md border-t-4 border-virtus-blue">
                 <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-                    <h3 className="text-xl font-display font-bold text-virtus-blue uppercase tracking-tight">
+                    <h3 className="widget-title">
                         {title}
                     </h3>
-                    <CalendarIcon className="w-5 h-5 text-virtus-yellow" />
+                    <CalendarIcon className="w-5 h-5 text-virtus-gold" />
                 </div>
                 <div className="py-8 text-center">
                     <p className="text-gray-400 font-medium italic">Nessuna partita inserita</p>
@@ -47,10 +47,10 @@ export default function CalendarWidget({ events, teamSlug, title = "Prossime Gar
     return (
         <section className="bg-white rounded-lg p-6 shadow-md border-t-4 border-virtus-blue">
             <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-                <h3 className="text-xl font-display font-bold text-virtus-blue uppercase tracking-tight">
+                <h3 className="widget-title">
                     {title}
                 </h3>
-                <CalendarIcon className="w-5 h-5 text-virtus-yellow" />
+                <CalendarIcon className="w-5 h-5 text-virtus-gold" />
             </div>
 
             <div className="space-y-4">

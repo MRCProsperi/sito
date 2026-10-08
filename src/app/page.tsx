@@ -7,6 +7,7 @@ import Image from "next/image";
 import CalendarWidget from "@/components/CalendarWidget";
 import NextMatch, { type TeamMatches } from "@/components/NextMatch";
 import LatestNews from "@/components/LatestNews";
+import Reveal from "@/components/Reveal";
 import { romeTimestamp } from "@/lib/time";
 import StandingsWidget from "@/components/StandingsWidget";
 import SponsorsWidget from "@/components/SponsorsWidget";
@@ -81,10 +82,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-virtus-blue via-virtus-blue/50 to-transparent z-10"></div>
 
         <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-4">
+          <h1 className="animate-fade-up text-5xl md:text-7xl font-display font-bold text-white uppercase tracking-tighter leading-none mb-4">
             Virtus <span className="text-virtus-yellow">Velletri</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-200">
+          <p className="animate-fade-up-delay text-lg md:text-xl text-gray-200">
             Il basket nel cuore dei Castelli Romani
           </p>
         </div>
@@ -96,14 +97,14 @@ export default function Home() {
       {/* Next matches: one card per team with a calendar */}
       {teamCards.length > 0 && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 w-full">
-          <NextMatch teams={teamCards} />
+          <Reveal><NextMatch teams={teamCards} /></Reveal>
         </div>
       )}
 
       {/* Latest news */}
       {newsCards.length > 0 && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 w-full">
-          <LatestNews items={newsCards} />
+          <Reveal><LatestNews items={newsCards} /></Reveal>
         </div>
       )}
 
@@ -116,15 +117,15 @@ export default function Home() {
 
             {/* Bento Grid - Il Mondo Virtus */}
             <div>
-              <h2 className="text-3xl font-display font-bold text-virtus-blue uppercase tracking-tight mb-6">
+              <h2 className="section-title mb-6">
                 Il Mondo Virtus
               </h2>
-              <BentoGrid compact={true} />
+              <Reveal><BentoGrid compact={true} /></Reveal>
             </div>
 
             {/* Horizontal Timed Sponsor Carousel */}
             <section className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-2xl font-display font-bold text-virtus-blue uppercase tracking-tight mb-4 pb-2 border-b-2 border-virtus-yellow">
+              <h3 className="widget-title mb-4 pb-2 border-b-2 border-virtus-yellow">
                 I Nostri Partner
               </h3>
               <HorizontalSponsorCarousel sponsors={sponsors} />
@@ -132,7 +133,7 @@ export default function Home() {
 
             {/* Instagram Feed */}
             <section>
-              <h2 className="text-3xl font-display font-bold text-virtus-blue uppercase tracking-tight mb-6">
+              <h2 className="section-title mb-6">
                 Ultimi Post Instagram
               </h2>
               <div className="bg-white rounded-lg p-6 shadow-md">
@@ -146,13 +147,13 @@ export default function Home() {
           <div className="space-y-8">
 
             {/* Vertical Sponsor Carousel */}
-            <SponsorsWidget sponsors={sponsors} />
+            <Reveal><SponsorsWidget sponsors={sponsors} /></Reveal>
 
             {/* Social Links */}
 
             {/* Social Links */}
             <section className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-display font-bold text-virtus-blue uppercase tracking-tight mb-4 pb-2 border-b-2 border-virtus-yellow">
+              <h3 className="widget-title mb-4 pb-2 border-b-2 border-virtus-yellow">
                 Social
               </h3>
               <div className="space-y-4">
@@ -186,7 +187,7 @@ export default function Home() {
             <CalendarWidget events={upcomingMatches} title="Risultati e Calendario" />
 
             {/* Standings Widget */}
-            <StandingsWidget groups={allStandings} />
+            <Reveal><StandingsWidget groups={allStandings} /></Reveal>
 
           </div>
         </div>

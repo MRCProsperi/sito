@@ -51,14 +51,14 @@ export default async function CalendarPage({ params }: { params: Promise<{ slug:
                 {/* Back Button */}
                 <Link
                     href={`/${slug}`}
-                    className="inline-flex items-center text-virtus-blue hover:text-virtus-yellow mb-8 font-bold transition-colors group"
+                    className="inline-flex items-center text-virtus-blue hover:text-virtus-gold mb-8 font-bold transition-colors group"
                 >
                     <MoveLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
                     Torna alla squadra
                 </Link>
 
                 <div className="mb-10 text-center">
-                    <h1 className="text-3xl md:text-5xl font-display font-black text-virtus-blue uppercase tracking-tight mb-2">
+                    <h1 className="page-title mb-2">
                         Calendario Completo
                     </h1>
                     <p className="text-gray-500 font-bold uppercase tracking-widest text-sm">
@@ -88,7 +88,7 @@ export default async function CalendarPage({ params }: { params: Promise<{ slug:
                                 <div className="flex items-center gap-6">
                                     {/* Date Circle */}
                                     <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gray-50 rounded-2xl flex flex-col items-center justify-center border border-gray-100 group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors leading-none">
-                                        <span className="text-[10px] md:text-xs font-black text-virtus-yellow mb-1">{weekday}</span>
+                                        <span className="text-[10px] md:text-xs font-black text-virtus-gold mb-1">{weekday}</span>
                                         <span className="text-2xl md:text-3xl font-black text-gray-800">{day}</span>
                                         <span className="text-[10px] md:text-xs font-black text-virtus-blue mt-1 uppercase">{month}</span>
                                     </div>
@@ -115,11 +115,11 @@ export default async function CalendarPage({ params }: { params: Promise<{ slug:
                                         )}
                                         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-xs md:text-sm text-gray-500 font-medium">
                                             <div className="flex items-center gap-1">
-                                                <Clock className="w-4 h-4 text-virtus-yellow" />
+                                                <Clock className="w-4 h-4 text-virtus-gold" />
                                                 {match.time || 'TBD'}
                                             </div>
                                             <div className="flex items-center gap-1 min-w-0">
-                                                <MapPin className="w-4 h-4 text-virtus-yellow shrink-0" />
+                                                <MapPin className="w-4 h-4 text-virtus-gold shrink-0" />
                                                 <span className="truncate">{match.location}</span>
                                             </div>
                                         </div>

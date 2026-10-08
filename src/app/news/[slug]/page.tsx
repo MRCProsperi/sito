@@ -136,7 +136,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
                             <div className="text-gray-400 text-sm font-medium">
                                 © {new Date().getFullYear()} Virtus Velletri Basket
                             </div>
-                            <button className="flex items-center gap-2 text-virtus-blue hover:text-virtus-yellow font-bold text-sm uppercase tracking-wider transition-colors">
+                            <button className="flex items-center gap-2 text-virtus-blue hover:text-virtus-gold font-bold text-sm uppercase tracking-wider transition-colors">
                                 <Share2 className="w-4 h-4" /> Condividi
                             </button>
                         </div>

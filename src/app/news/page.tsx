@@ -72,7 +72,7 @@ export default function NewsPage() {
                                     })}
                                 </div>
 
-                                <h3 className="text-xl font-display font-bold text-virtus-blue mb-3 group-hover:text-virtus-yellow transition-colors line-clamp-2 uppercase tracking-tight">
+                                <h3 className="text-xl font-display font-bold text-virtus-blue mb-3 group-hover:text-virtus-gold transition-colors line-clamp-2 uppercase tracking-tight">
                                     {item.meta.title}
                                 </h3>
 

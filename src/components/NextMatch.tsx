@@ -129,7 +129,7 @@ export default function NextMatch({ teams }: { teams: TeamMatches[] }) {
     return (
         <section aria-labelledby="prossime-partite">
             <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
-                <h2 id="prossime-partite" className="font-display text-3xl font-bold uppercase tracking-tight text-virtus-blue">
+                <h2 id="prossime-partite" className="section-title">
                     Prossime partite
                 </h2>
                 {teams.length > 1 && (

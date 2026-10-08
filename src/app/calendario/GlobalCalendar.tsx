@@ -62,13 +62,13 @@ export default function GlobalCalendar({ initialMatches }: { initialMatches: Mat
                         <div>
                             <Link
                                 href="/"
-                                className="inline-flex items-center text-virtus-blue hover:text-virtus-yellow mb-4 font-bold transition-colors group"
+                                className="inline-flex items-center text-virtus-blue hover:text-virtus-gold mb-4 font-bold transition-colors group"
                             >
                                 <MoveLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
                                 Torna alla Home
                             </Link>
-                            <h1 className="text-3xl md:text-5xl font-display font-black text-virtus-blue uppercase tracking-tight mb-1">
-                                Calendario <span className="text-virtus-yellow">Globale</span>
+                            <h1 className="page-title mb-1">
+                                Calendario <span className="text-virtus-gold">Globale</span>
                             </h1>
                             <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">
                                 Stagione {SEASON} • {filteredMatches.length} Gare
@@ -105,7 +105,7 @@ export default function GlobalCalendar({ initialMatches }: { initialMatches: Mat
                         </button>
                         <button
                             onClick={() => setStatusFilter('upcoming')}
-                            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wide transition-all ${statusFilter === 'upcoming' ? 'bg-virtus-yellow/10 text-virtus-yellow' : 'text-gray-400 hover:text-gray-600'
+                            className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wide transition-all ${statusFilter === 'upcoming' ? 'bg-virtus-yellow/10 text-virtus-gold' : 'text-gray-400 hover:text-gray-600'
                                 }`}
                         >
                             Da Giocare
@@ -176,8 +176,8 @@ export default function GlobalCalendar({ initialMatches }: { initialMatches: Mat
                                                         {match.title}
                                                     </h3>
                                                     <div className="flex items-center gap-3 mt-1 text-[10px] md:text-xs text-gray-400 font-medium whitespace-nowrap overflow-hidden">
-                                                        <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-virtus-yellow" /> {match.time || 'TBD'}</span>
-                                                        <span className="flex items-center gap-1 truncate"><MapPin className="w-3 h-3 text-virtus-yellow" /> {match.location}</span>
+                                                        <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-virtus-gold" /> {match.time || 'TBD'}</span>
+                                                        <span className="flex items-center gap-1 truncate"><MapPin className="w-3 h-3 text-virtus-gold" /> {match.location}</span>
                                                     </div>
                                                 </div>
 

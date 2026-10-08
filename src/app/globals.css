@@ -14,6 +14,8 @@
   --font-display: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
   --color-virtus-yellow: #F7A211;
   --color-virtus-blue: #1F325A;
+  /* dark gold for TEXT on light backgrounds (yellow #F7A211 on white is only 2:1) */
+  --color-virtus-gold: #A05E00;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,4 +66,25 @@ body {
 
 .hover\:pause:hover {
   animation-play-state: paused;
+}
+
+/* ---- Type scale: one look for the same kind of heading everywhere ---- */
+@layer components {
+  .page-title { @apply font-display text-3xl md:text-5xl font-black uppercase tracking-tight text-virtus-blue; }
+  .section-title { @apply font-display text-2xl md:text-3xl font-bold uppercase tracking-tight text-virtus-blue; }
+  .widget-title { @apply font-display text-lg md:text-xl font-bold uppercase tracking-tight text-virtus-blue; }
+  .card-title { @apply font-display text-lg font-bold uppercase leading-tight tracking-tight text-virtus-blue; }
+}
+
+/* ---- Motion: gentle, and off for people who ask for less ---- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.animate-fade-up { animation: fadeUp .8s ease both; }
+.animate-fade-up-delay { animation: fadeUp .8s .15s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .animate-fade-up, .animate-fade-up-delay, .animate-scroll-x, .animate-scroll-up { animation: none; }
 }

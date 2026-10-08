@@ -52,7 +52,7 @@ export default async function MatchPage({ params }: { params: Promise<{ slug: st
                 {/* Back Button */}
                 <Link
                     href={`/${match.teamId}`}
-                    className="inline-flex items-center text-virtus-blue hover:text-virtus-yellow mb-8 font-bold transition-colors group"
+                    className="inline-flex items-center text-virtus-blue hover:text-virtus-gold mb-8 font-bold transition-colors group"
                 >
                     <MoveLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
                     Torna alla squadra
