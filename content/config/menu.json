@@ -1,0 +1,140 @@
+[
+  {
+    "label": "Home",
+    "href": "/"
+  },
+  {
+    "label": "News",
+    "href": "/news"
+  },
+  {
+    "label": "Galleria",
+    "href": "/gallery"
+  },
+  {
+    "label": "Società",
+    "href": "/storia",
+    "children": [
+      {
+        "label": "Storia",
+        "href": "/storia"
+      },
+      {
+        "label": "Organigramma",
+        "href": "/organigramma"
+      },
+      {
+        "label": "Staff Tecnico",
+        "href": "/staff"
+      },
+      {
+        "label": "Dove Siamo",
+        "href": "/contatti"
+      },
+      {
+        "label": "Safeguarding",
+        "href": "/safeguarding"
+      },
+      {
+        "label": "Diventa sponsor",
+        "href": "/diventa-sponsor"
+      }
+    ]
+  },
+  {
+    "label": "Senior",
+    "href": "/dr1",
+    "children": [
+      {
+        "label": "DR1",
+        "href": "/dr1"
+      },
+      {
+        "label": "Amatori UISP",
+        "href": "/amatori-uisp"
+      },
+      {
+        "label": "Amatoriale",
+        "href": "/amatoriale"
+      }
+    ]
+  },
+  {
+    "label": "Giovanili",
+    "href": "/giovanili",
+    "children": [
+      {
+        "label": "Under 13",
+        "href": "/under-13"
+      },
+      {
+        "label": "Under 14",
+        "href": "/under-14"
+      },
+      {
+        "label": "Under 15 - Under 16",
+        "href": "/under-15"
+      },
+      {
+        "label": "Under 17",
+        "href": "/under-17"
+      },
+      {
+        "label": "Progetto Basket",
+        "href": "/progetto-basket"
+      }
+    ]
+  },
+  {
+    "label": "Minibasket",
+    "href": "/minibasket",
+    "children": [
+      {
+        "label": "Pulcini",
+        "href": "/pulcini"
+      },
+      {
+        "label": "Scoiattoli Small",
+        "href": "/scoiattoli-small"
+      },
+      {
+        "label": "Scoiattoli Big Blu",
+        "href": "/scoiattoli-big-blu"
+      },
+      {
+        "label": "Scoiattoli Big Giallo",
+        "href": "/scoiattoli-big-giallo"
+      },
+      {
+        "label": "Aquilotti Small",
+        "href": "/aquilotti-small"
+      },
+      {
+        "label": "Aquilotti Big",
+        "href": "/aquilotti-big"
+      },
+      {
+        "label": "Esordienti",
+        "href": "/esordienti"
+      }
+    ]
+  },
+  {
+    "label": "Iscrizioni",
+    "href": "/iscrizioni",
+    "children": [
+      {
+        "label": "Iscrizione Minibasket",
+        "href": "/iscrizioni/modulo-minibasket"
+      },
+      {
+        "label": "Iscrizione Basket",
+        "href": "/iscrizioni/modulo-basket"
+      }
+    ]
+  },
+  {
+    "label": "Contatti",
+    "href": "/contatti"
+  }
+]

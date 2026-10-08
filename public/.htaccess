@@ -1,0 +1,52 @@
+# Virtus Velletri - static site on Apache (Aruba Linux hosting)
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Old WordPress URLs -> new pages (absolute target: a single hop, even from http or non-www)
+RewriteRule ^societa/organigramma/?$ https://www.virtusvelletri.it/organigramma/ [R=301,L]
+RewriteRule ^societa/staff/?$ https://www.virtusvelletri.it/staff/ [R=301,L]
+RewriteRule ^societa/?$ https://www.virtusvelletri.it/storia/ [R=301,L]
+RewriteRule ^dove-siamo/?$ https://www.virtusvelletri.it/contatti/ [R=301,L]
+RewriteRule ^collaborano-con-noi/?$ https://www.virtusvelletri.it/collaborazioni/ [R=301,L]
+RewriteRule ^giovanili/info-e-orari-basket/?$ https://www.virtusvelletri.it/giovanili/ [R=301,L]
+RewriteRule ^info-e-orari/?$ https://www.virtusvelletri.it/giovanili/ [R=301,L]
+RewriteRule ^open-day-2026/?$ https://www.virtusvelletri.it/iscrizioni/ [R=301,L]
+RewriteRule ^moduli/?$ https://www.virtusvelletri.it/iscrizioni/ [R=301,L]
+RewriteRule ^iscrizione-minibasket-2026/?$ https://www.virtusvelletri.it/iscrizioni/modulo-minibasket/ [R=301,L]
+RewriteRule ^iscrizione-basket-2026/?$ https://www.virtusvelletri.it/iscrizioni/modulo-basket/ [R=301,L]
+RewriteRule ^eventi/?$ https://www.virtusvelletri.it/news/ [R=301,L]
+RewriteRule ^tutto-pronto-per-la-nuova-stagione/?$ https://www.virtusvelletri.it/news/ [R=301,L]
+RewriteRule ^tutto-pronto-per-il-memorial-romina-trenta/?$ https://www.virtusvelletri.it/news/ [R=301,L]
+RewriteRule ^aperte-le-iscrizioni-ai-corsi-basket-e-minibasket/?$ https://www.virtusvelletri.it/news/ [R=301,L]
+RewriteRule ^inaugurato-il-campo-di-street-basket/?$ https://www.virtusvelletri.it/news/ [R=301,L]
+RewriteRule ^street-basket-dal-22-agosto-apre-il-playground-della-virtus-presso-la-piscina-tortura/?$ https://www.virtusvelletri.it/news/ [R=301,L]
+
+# Old WordPress leftovers: not used by this site, never serve them (return 404)
+RewriteRule ^(wp-admin|wp-includes|wp-content)(/|$) - [R=404,L]
+RewriteRule ^wp-[a-z-]+\.php$ - [R=404,L]
+RewriteRule ^(xmlrpc|index|index_old)\.php$ - [R=404,L]
+RewriteRule ^(LEGGIMI|license|readme)\.(txt|html)$ - [R=404,L]
+RewriteRule ^licenza\.html$ - [R=404,L]
+
+# Force HTTPS and www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.virtusvelletri.it%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/svg+xml "access plus 1 month"
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

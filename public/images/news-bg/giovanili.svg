@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 640" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#1F325A"/>
+      <stop offset="1" stop-color="#2d4a85"/>
+    </linearGradient>
+    <pattern id="dots" width="44" height="44" patternUnits="userSpaceOnUse">
+      <circle cx="22" cy="22" r="4" fill="#F7A211" opacity="0.55"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="m"><rect width="1920" height="640" fill="url(#fade)"/></mask>
+  </defs>
+  <rect width="1920" height="640" fill="url(#bg)"/>
+  <!-- dotted grid fading in from the left -->
+  <rect width="1920" height="640" fill="url(#dots)" mask="url(#m)"/>
+  <!-- three-point arcs -->
+  <g fill="none" stroke="#F7A211" stroke-width="10" stroke-linecap="round">
+    <path d="M -40 640 A 560 560 0 0 1 560 90" stroke-opacity="0.85"/>
+    <path d="M -40 640 A 700 700 0 0 1 700 -20" stroke-opacity="0.35"/>
+  </g>
+  <circle cx="1560" cy="140" r="220" fill="#F7A211" opacity="0.12"/>
+  <circle cx="1560" cy="140" r="120" fill="#F7A211" opacity="0.14"/>
+  <rect x="0" y="600" width="1920" height="40" fill="#F7A211" opacity="0.9"/>
+</svg>

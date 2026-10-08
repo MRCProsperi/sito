@@ -1,0 +1,59 @@
+# Deploy automatico: a ogni modifica su main costruisce il sito e lo carica su Aruba via FTP.
+# Va attivato seguendo GUIDA-CMS-E-DEPLOY.md (servono i "Secrets" del repository).
+# Finché i Secrets non sono stati creati, il lavoro si ferma subito senza errori.
+name: Deploy su Aruba
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+# una sola pubblicazione alla volta: se ne arriva un'altra, aspetta
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      FTP_HOST: ${{ secrets.FTP_HOST }}
+      FTP_USER: ${{ secrets.FTP_USER }}
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+      INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+      INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+    steps:
+      - name: Segreti presenti?
+        id: check
+        run: |
+          if [ -n "$FTP_HOST" ] && [ -n "$FTP_USER" ] && [ -n "$FTP_PASSWORD" ] && [ -n "$FTP_REMOTE_DIR" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Secrets FTP non configurati: deploy automatico non attivo (vedi GUIDA-CMS-E-DEPLOY.md)."
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.ready == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.ready == 'true'
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+        if: steps.check.outputs.ready == 'true'
+
+      - name: Build
+        if: steps.check.outputs.ready == 'true'
+        run: npm run build
+
+      - name: Controllo prima di pubblicare
+        if: steps.check.outputs.ready == 'true'
+        run: test -f out/index.html && test -f out/.htaccess
+
+      - name: Deploy FTP
+        if: steps.check.outputs.ready == 'true'
+        run: node scripts/deploy.mjs

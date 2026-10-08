@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Bird Box",
+        "logo": "/images/sponsors/Bird Box.jpg",
+        "url": "https://bird-box.it/"
+    },
+    {
+        "name": "Ciana",
+        "logo": "/images/sponsors/Ciana.jpg",
+        "url": "https://www.ciana.it/"
+    },
+    {
+        "name": "Farmacia San Raffele",
+        "logo": "/images/sponsors/Farmacia San Raffele.jpg",
+        "url": "https://www.farmaciemontecuollo.it/it/farmacia-san-raffaele-velletri-rm"
+    },
+    {
+        "name": "Francy's cake",
+        "logo": "/images/sponsors/Francy's cake.jpg",
+        "url": "https://www.instagram.com/francys_cake87/"
+    },
+    {
+        "name": "La Meccanica",
+        "logo": "/images/sponsors/La Meccanica.jpeg",
+        "url": "https://www.facebook.com/lameccanicacavola/?locale=it_IT"
+    },
+    {
+        "name": "Marcelli",
+        "logo": "/images/sponsors/Marcelli.png",
+        "url": "https://www.marcellicommercialfoods.com/"
+    },
+    {
+        "name": "Riqualifica 360",
+        "logo": "/images/sponsors/Riqualifica 360.jpg",
+        "url": "https://www.riqualificazione360.it/"
+    },
+    {
+        "name": "Trattoria Duilio",
+        "logo": "/images/sponsors/Trattoria Duilio.jpg",
+        "url": "https://www.instagram.com/trattoriaduilio/"
+    },
+    {
+        "name": "In Out",
+        "logo": "/images/sponsors/in out.jpg",
+        "url": "https://www.instagram.com/inoutluxuryoutlet/?hl=it"
+    }
+]
