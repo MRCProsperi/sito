@@ -23,3 +23,7 @@ export function getGalleryAlbums(): GalleryAlbum[] {
     // newest season first, albums by name
     return albums.sort((a, b) => b.season.localeCompare(a.season) || a.title.localeCompare(b.title));
 }
+
+export function getGalleryAlbum(season: string, slug: string): GalleryAlbum | null {
+    return getGalleryAlbums().find((a) => a.season === season && a.slug === slug) || null;
+}

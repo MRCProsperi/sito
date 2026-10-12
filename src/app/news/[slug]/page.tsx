@@ -5,7 +5,7 @@ import Image from 'next/image';
 import JsonLd from '@/components/JsonLd';
 import { SITE_URL } from '@/lib/site';
 import Link from 'next/link';
-import { Calendar, ChevronLeft, Share2, Download, ImageDown } from 'lucide-react';
+import { Calendar, Camera, ChevronLeft, Share2, Download, ImageDown } from 'lucide-react';
 import { newsCategory } from '@/lib/newsBackgrounds';
 
 export async function generateStaticParams() {
@@ -113,18 +113,29 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
                                         <a
                                             href={item.meta.downloadPdf}
                                             download
-                                            className="inline-flex items-center gap-2 rounded-lg bg-virtus-blue px-5 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-virtus-blue/90"
+                                            className="inline-flex items-center gap-2 rounded-lg bg-virtus-blue px-5 py-3 text-sm font-bold uppercase tracking-wide text-virtus-yellow transition-colors hover:bg-virtus-blue/90"
                                         >
                                             <Download className="w-4 h-4" /> Scarica il calendario (PDF)
                                         </a>
                                     )}
-                                    <a
-                                        href={item.meta.image}
-                                        download
-                                        className="inline-flex items-center gap-2 rounded-lg border-2 border-virtus-blue px-5 py-3 text-sm font-bold uppercase tracking-wide text-virtus-blue transition-colors hover:bg-virtus-blue hover:text-white"
-                                    >
-                                        <ImageDown className="w-4 h-4" /> Scarica l&apos;immagine
-                                    </a>
+                                    {(item.meta.buttons as { link: string; label: string }[] | undefined)?.map((b) => (
+                                        <Link
+                                            key={b.link}
+                                            href={b.link}
+                                            className="inline-flex items-center gap-2 rounded-lg bg-virtus-blue px-5 py-3 text-sm font-bold uppercase tracking-wide text-virtus-yellow transition-colors hover:bg-virtus-blue/90"
+                                        >
+                                            {b.link.startsWith('/gallery') ? <Camera className="w-4 h-4" /> : <Calendar className="w-4 h-4" />} {b.label}
+                                        </Link>
+                                    ))}
+                                    {!item.meta.hideImageDownload && (
+                                        <a
+                                            href={item.meta.image}
+                                            download
+                                            className="inline-flex items-center gap-2 rounded-lg border-2 border-virtus-blue px-5 py-3 text-sm font-bold uppercase tracking-wide text-virtus-blue transition-colors hover:bg-virtus-blue hover:text-white"
+                                        >
+                                            <ImageDown className="w-4 h-4" /> Scarica l&apos;immagine
+                                        </a>
+                                    )}
                                 </div>
                             </figure>
                         )}

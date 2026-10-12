@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllMatches, getAllNews, getAllPages } from "@/lib/content";
+import { getGalleryAlbums } from "@/lib/gallery";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -9,7 +10,7 @@ export const dynamic = "force-static";
 const url = (p: string) => `${SITE_URL}${p}/`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/news", "/giovanili", "/calendario", "/iscrizioni/modulo-basket", "/iscrizioni/modulo-minibasket", "/batlh-studio"];
+  const staticRoutes = ["", "/news", "/gallery", "/giovanili", "/calendario", "/iscrizioni/modulo-basket", "/iscrizioni/modulo-minibasket", "/batlh-studio"];
 
   const pages = getAllPages();
 
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes.map((p) => ({ url: url(p) })),
     ...pages.map((p) => ({ url: url(`/${p.slug}`) })),
     ...calendarSlugs.map((s) => ({ url: url(`/calendario/${s}`) })),
+    ...getGalleryAlbums().map((a) => ({ url: url(`/gallery/${a.season}/${a.slug}`) })),
     ...getAllNews().map((n) => ({
       url: url(`/news/${n.slug}`),
       lastModified: n.meta.date ? new Date(n.meta.date) : undefined,

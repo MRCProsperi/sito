@@ -34,7 +34,18 @@ export default async function MatchPage({ params }: { params: Promise<{ slug: st
         notFound();
     }
 
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(match.location || '')}`;
+    const players = match.players ?? [];
+    const hasBoxscore = players.length > 0;
+    const totalPoints = players.reduce((sum, p) => sum + (Number(p.points) || 0), 0);
+    const [homeTeam = '', awayTeam = ''] = match.title.split(/\s+vs\.?\s+/i);
+    const parsePairs = (text?: string) => (text || '').split(/[,;]/).map((t) => t.trim().match(/^(\d+)\s*-\s*(\d+)$/)).filter((m): m is RegExpMatchArray => !!m).map((m) => [Number(m[1]), Number(m[2])]);
+    const quarterPairs = parsePairs(match.quarters);
+    const finalPair = parsePairs(match.score)[0];
+    const hasStarters = players.some((p) => p.starter);
+    const starters = players.filter((p) => p.starter);
+    const bench = players.filter((p) => !p.starter);
+    const groups = hasStarters ? [{ label: 'Quintetto', rows: starters }, { label: 'Panchina', rows: bench }] : [{ label: '', rows: players }];
+    const mapsUrl =`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(match.location || '')}`;
 
     // Format date in Italian
     const dateObj = new Date(match.date);
@@ -79,6 +90,7 @@ export default async function MatchPage({ params }: { params: Promise<{ slug: st
 
                     {/* Details Grid */}
                     <div className="p-8 md:p-12">
+                        {!hasBoxscore && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
                             {/* Left: Info */}
@@ -105,38 +117,124 @@ export default async function MatchPage({ params }: { params: Promise<{ slug: st
                             </div>
 
                             {/* Right: Location */}
-                            <div className="space-y-8">
-                                <div className="flex items-start gap-4">
-                                    <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-virtus-blue shrink-0">
-                                        <MapPin className="w-6 h-6" />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Campo da Gioco</div>
-                                        <div className="text-lg font-bold text-gray-800 mb-4 leading-snug">
-                                            {match.location}
+                            {!hasBoxscore && (
+                                <div className="space-y-8">
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-virtus-blue shrink-0">
+                                            <MapPin className="w-6 h-6" />
                                         </div>
+                                        <div>
+                                            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Campo da Gioco</div>
+                                            <div className="text-lg font-bold text-gray-800 mb-4 leading-snug">
+                                                {match.location}
+                                            </div>
 
-                                        <a
-                                            href={mapsUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="inline-flex items-center bg-virtus-yellow hover:bg-yellow-400 text-virtus-blue px-6 py-3 rounded-xl font-black uppercase tracking-wide transition-all shadow-md hover:shadow-lg active:scale-95"
-                                        >
-                                            <Navigation className="w-5 h-5 mr-2" />
-                                            Apri in Maps
-                                        </a>
+                                            <a
+                                                href={mapsUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center bg-virtus-yellow hover:bg-yellow-400 text-virtus-blue px-6 py-3 rounded-xl font-black uppercase tracking-wide transition-all shadow-md hover:shadow-lg active:scale-95"
+                                            >
+                                                <Navigation className="w-5 h-5 mr-2" />
+                                                Apri in Maps
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
 
                         </div>
-                    </div>
+                        )}
 
-                    {/* Footer Info */}
-                    <div className="bg-gray-50 p-6 text-center border-t border-gray-100">
-                        <p className="text-sm text-gray-500 font-medium">
-                            Per qualsiasi variazione dell&apos;ultimo minuto, si prega di consultare i canali ufficiali della Federazione.
-                        </p>
+                        {hasBoxscore && (
+                            <div>
+                                <h2 className="text-2xl font-display font-black uppercase text-virtus-blue mb-6">Tabellino</h2>
+
+                                {quarterPairs.length > 0 && homeTeam && awayTeam && (
+                                    <div className="mb-8 overflow-x-auto">
+                                        <table className="w-full text-center">
+                                            <thead>
+                                                <tr className="text-xs font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200">
+                                                    <th className="py-2 text-left">Squadra</th>
+                                                    {quarterPairs.map((_, i) => <th key={i} className="py-2 px-2">Q{i + 1}</th>)}
+                                                    <th className="py-2 pl-3 text-virtus-blue">Tot</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {[homeTeam, awayTeam].map((team, side) => (
+                                                    <tr key={team} className="border-b border-gray-100">
+                                                        <td className="py-2.5 text-left font-bold text-gray-800">{team}</td>
+                                                        {quarterPairs.map((q, i) => <td key={i} className="py-2.5 px-2 text-gray-700">{q[side]}</td>)}
+                                                        <td className="py-2.5 pl-3 font-display font-black text-virtus-blue">
+                                                            {finalPair ? finalPair[side] : quarterPairs.reduce((sum, q) => sum + q[side], 0)}
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+
+                                <div className="mb-3 text-sm font-black uppercase tracking-widest text-virtus-blue">{homeTeam.toLowerCase().includes('virtus') ? homeTeam : awayTeam.toLowerCase().includes('virtus') ? awayTeam : 'Virtus Velletri'}</div>
+                                <table className="w-full text-left">
+                                    <thead>
+                                        <tr className="text-xs font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200">
+                                            <th className="py-2">Giocatore</th>
+                                            <th className="py-2 text-right">Punti</th>
+                                        </tr>
+                                    </thead>
+                                    {groups.map((g) => (
+                                        <tbody key={g.label || 'tutti'}>
+                                            {g.label && g.rows.length > 0 && (
+                                                <tr className="bg-gray-50">
+                                                    <th colSpan={2} className="py-1.5 px-2 text-left text-[11px] font-black uppercase tracking-widest text-gray-500">{g.label}</th>
+                                                </tr>
+                                            )}
+                                            {g.rows.map((p, i) => (
+                                                <tr key={i} className="border-b border-gray-100">
+                                                    <td className="py-2.5 font-bold text-gray-800">
+                                                        {p.name}
+                                                        {p.number != null && p.number !== '' && (
+                                                            <span className="ml-1.5 text-xs font-semibold text-gray-400">#{p.number}</span>
+                                                        )}
+                                                    </td>
+                                                    <td className="py-2.5 text-right font-display font-black text-gray-800">{p.points}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    ))}
+                                    <tfoot>
+                                        <tr className="border-t-2 border-virtus-blue">
+                                            <td className="py-3 text-xs font-black uppercase tracking-widest text-virtus-blue">Totale</td>
+                                            <td className="py-3 text-right font-display font-black text-virtus-blue">{totalPoints}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                                {(match.coach || match.assistantCoach || (match.officials && match.officials.length > 0)) && (
+                                    <dl className="mt-6 space-y-2 text-gray-800">
+                                        {match.coach && (
+                                            <div>
+                                                <dt className="inline text-xs font-bold uppercase tracking-widest text-gray-400">Allenatore</dt>{' '}
+                                                <dd className="inline font-bold">{match.coach}</dd>
+                                            </div>
+                                        )}
+                                        {match.assistantCoach && (
+                                            <div>
+                                                <dt className="inline text-xs font-bold uppercase tracking-widest text-gray-400">Vice allenatore</dt>{' '}
+                                                <dd className="inline font-bold">{match.assistantCoach}</dd>
+                                            </div>
+                                        )}
+                                        {match.officials && match.officials.length > 0 && (
+                                            <div>
+                                                <dt className="inline text-xs font-bold uppercase tracking-widest text-gray-400">Dirigenti</dt>{' '}
+                                                <dd className="inline font-bold">{match.officials.join(', ')}</dd>
+                                            </div>
+                                        )}
+                                    </dl>
+                                )}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

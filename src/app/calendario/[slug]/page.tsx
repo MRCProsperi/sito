@@ -7,6 +7,20 @@ import Link from 'next/link';
 import fs from 'node:fs';
 import CalendarSubscribe from '@/components/CalendarSubscribe';
 
+
+// Outcome for Virtus from a "Home vs Away" title and a "home-away" score: 'V' win, 'P' loss, 'N' draw, null if unknown.
+function outcome(title: string, score?: string): 'V' | 'P' | 'N' | null {
+    const m = (score || '').match(/^(\d+)\s*-\s*(\d+)$/);
+    const [home = '', away = ''] = title.split(/\s+vs\.?\s+/i);
+    if (!m || !home || !away) return null;
+    const [h, a] = [Number(m[1]), Number(m[2])];
+    const virtusHome = home.toLowerCase().includes('virtus');
+    const virtusAway = away.toLowerCase().includes('virtus');
+    if (virtusHome === virtusAway) return null;
+    if (h === a) return 'N';
+    return (h > a) === virtusHome ? 'V' : 'P';
+}
+
 export async function generateStaticParams() {
     const pages = getAllPages();
     return pages.map((page) => ({
@@ -78,6 +92,53 @@ export default async function CalendarPage({ params }: { params: Promise<{ slug:
                         const day = dateObj.getDate().toString().padStart(2, '0');
                         const month = dateObj.toLocaleString('it-IT', { month: 'short' }).toUpperCase().replace('.', '');
                         const weekday = dateObj.toLocaleString('it-IT', { weekday: 'short' }).toUpperCase();
+
+                        const result = outcome(match.title, match.score);
+                        if (match.score) {
+                            const [homeScore, awayScore] = match.score.split('-').map((n) => n.trim());
+                            const tone = result === 'V' ? { bar: 'bg-green-500', badge: 'bg-green-100 text-green-700', text: 'text-green-700', label: 'Vittoria' }
+                                : result === 'P' ? { bar: 'bg-red-500', badge: 'bg-red-100 text-red-700', text: 'text-red-700', label: 'Sconfitta' }
+                                : { bar: 'bg-gray-400', badge: 'bg-gray-100 text-gray-600', text: 'text-gray-700', label: 'Finale' };
+                            return (
+                                <Link
+                                    href={`/partite/${match.slug}`}
+                                    key={index}
+                                    className="relative block overflow-hidden bg-white rounded-2xl pl-5 pr-4 py-4 md:pl-7 md:pr-6 md:py-5 shadow-sm hover:shadow-lg transition-all border border-gray-100 group hover:-translate-y-0.5 active:scale-[0.98]"
+                                >
+                                    <span className={`absolute inset-y-0 left-0 w-1.5 ${tone.bar}`} aria-hidden="true" />
+                                    <div className="flex items-center gap-4 md:gap-6">
+                                        <div className="flex-shrink-0 w-14 text-center leading-none">
+                                            <div className="text-[10px] font-black text-gray-400">{weekday}</div>
+                                            <div className="text-2xl font-black text-gray-700 my-1">{day}</div>
+                                            <div className="text-[10px] font-black text-gray-400 uppercase">{month}</div>
+                                        </div>
+
+                                        <div className="flex-grow min-w-0">
+                                            <div className="flex items-center gap-2 mb-1">
+                                                <span className="text-[10px] font-black text-white bg-virtus-blue px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                                                    {match.category}
+                                                </span>
+                                                <span className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter ${tone.badge}`}>
+                                                    {tone.label}
+                                                </span>
+                                            </div>
+                                            <h2 className="text-base md:text-lg font-display font-black text-gray-800 uppercase leading-snug group-hover:text-virtus-blue transition-colors">
+                                                {match.title}
+                                            </h2>
+                                            <div className="mt-1 text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-virtus-blue transition-colors">
+                                                Vedi il tabellino
+                                            </div>
+                                        </div>
+
+                                        <div className={`flex-shrink-0 text-right font-display font-black leading-none ${tone.text}`}>
+                                            <span className="text-3xl md:text-4xl">{homeScore}</span>
+                                            <span className="mx-1 text-xl text-gray-300">-</span>
+                                            <span className="text-3xl md:text-4xl">{awayScore}</span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            );
+                        }
 
                         return (
                             <Link

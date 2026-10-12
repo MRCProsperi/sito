@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Trophy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -124,7 +125,12 @@ export default function StandingsWidget({ standings, title = "Classifica", group
                                                 </span>
                                             </td>
                                             <td className={`py-3 font-bold ${isVirtus ? 'text-virtus-blue' : 'text-gray-700'}`}>
-                                                {row.team}
+                                                <span className="flex items-center gap-2">
+                                                    {isVirtus && (
+                                                        <Image src="/images/logo.png" alt="" width={24} height={24} className="w-6 h-6 object-contain shrink-0" />
+                                                    )}
+                                                    {row.team}
+                                                </span>
                                             </td>
                                             <td className="py-3 text-center font-bold text-virtus-blue">{row.points}</td>
                                             <td className="py-3 text-center text-gray-600 hidden sm:table-cell">{row.played || '-'}</td>

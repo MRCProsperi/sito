@@ -83,6 +83,11 @@ export interface MatchEvent {
     teamId?: string;
     slug: string;
     score?: string;
+    quarters?: string;
+    coach?: string;
+    assistantCoach?: string;
+    officials?: string[];
+    players?: { number?: number | string; name: string; points: number; starter?: boolean }[];
 }
 
 function slugify(text: string) {

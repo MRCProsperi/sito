@@ -2,7 +2,29 @@
 title: Partite DR1
 team_slug: dr1
 events:
-  - { title: "Virtus Velletri vs Casilino 23", date: "2026-10-11", time: "19:00", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "DR1" }
+  - title: "Virtus Velletri vs Casilino 23"
+    date: "2026-10-11"
+    time: "19:00"
+    location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)"
+    category: "DR1"
+    score: "67-43"
+    quarters: "13-15, 19-7, 18-12, 17-9"
+    coach: "Luca Mei"
+    assistantCoach: "Claudio Pesoli"
+    officials: ["Stefano Cerini", "Tania Di Clemente"]
+    players:
+      - { number: 3, name: "Andrea Borro", points: 12 }
+      - { number: 8, name: "Dario Mancini", points: 0 }
+      - { number: 9, name: "Raffaele Sica", points: 2, starter: true }
+      - { number: 10, name: "Edoardo Rosati", points: 2 }
+      - { number: 12, name: "Filippo Locati", points: 2 }
+      - { number: 14, name: "Lorenzo Marinelli", points: 15, starter: true }
+      - { number: 15, name: "Alessandro Di Leo", points: 3, starter: true }
+      - { number: 17, name: "Luca Battista", points: 11 }
+      - { number: 20, name: "Carmine Nardi", points: 10, starter: true }
+      - { number: 23, name: "Fehmi Abassi", points: 10, starter: true }
+      - { number: 24, name: "Valerio Nardini", points: 0 }
+      - { number: 73, name: "Tommaso Locati", points: 0 }
   - { title: "Smit Roma Centro vs Virtus Velletri", date: "2026-10-17", time: "18:00", location: "Impianto Tellene Via Claudio Villa Roma (Rm)", category: "DR1" }
   - { title: "Virtus Velletri vs APDB Roma", date: "2026-10-24", time: "18:30", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "DR1" }
   - { title: "Basket Palestrina 1962 vs Virtus Velletri", date: "2026-11-01", time: "18:00", location: "Palaiaia Via Pedemontana Stella 223 Palestrina (Rm)", category: "DR1" }

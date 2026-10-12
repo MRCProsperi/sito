@@ -20,8 +20,11 @@ const EXT = new Set([".jpg", ".jpeg", ".png", ".webp"]);
 
 const safe = (s) => String(s).replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "");
 const prettify = (slug) => {
-    const t = slug.split(/[-_]+/).filter(Boolean).map((w) => (/^(dr\d|u\d+)$/i.test(w) ? w.toUpperCase() : w)).join(" ");
-    return t.charAt(0).toUpperCase() + t.slice(1);
+    return slug.split(/[-_]+/).filter(Boolean).map((w) => {
+        if (/^(dr\d|u\d+)$/i.test(w)) return w.toUpperCase();
+        if (w.toLowerCase() === "vs") return "vs";
+        return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(" ");
 };
 
 // ---- collect albums: { season, slug, title, files: [absolute/relative source paths in display order] }
