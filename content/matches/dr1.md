@@ -25,7 +25,27 @@ events:
       - { number: 23, name: "Fehmi Abassi", points: 10, starter: true }
       - { number: 24, name: "Valerio Nardini", points: 0 }
       - { number: 73, name: "Tommaso Locati", points: 0 }
-  - { title: "Smit Roma Centro vs Virtus Velletri", date: "2026-10-17", time: "18:00", location: "Impianto Tellene Via Claudio Villa Roma (Rm)", category: "DR1" }
+  - title: "Smit Roma Centro vs Virtus Velletri"
+    date: "2026-10-17"
+    time: "18:00"
+    location: "Impianto Tellene Via Claudio Villa Roma (Rm)"
+    category: "DR1"
+    score: "85-71"
+    quarters: "13-16, 19-22, 34-17, 19-16"
+    coach: "Luca Mei"
+    players:
+      - { number: 2, name: "Federico Podeschi", points: 0 }
+      - { number: 3, name: "Andrea Borro", points: 10 }
+      - { number: 9, name: "Raffaele Sica", points: 5, starter: true }
+      - { number: 12, name: "Filippo Locati", points: 14 }
+      - { number: 14, name: "Lorenzo Marinelli", points: 10, starter: true }
+      - { number: 15, name: "Alessandro Di Leo", points: 19, starter: true }
+      - { number: 16, name: "Tommaso Salvatori", points: 0 }
+      - { number: 17, name: "Luca Battista", points: 6 }
+      - { number: 20, name: "Carmine Nardi", points: 3, starter: true }
+      - { number: 23, name: "Fehmi Abassi", points: 4, starter: true }
+      - { number: 24, name: "Valerio Nardini", points: 0 }
+      - { number: 73, name: "Tommaso Locati", points: 0 }
   - { title: "Virtus Velletri vs APDB Roma", date: "2026-10-24", time: "18:30", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "DR1" }
   - { title: "Basket Palestrina 1962 vs Virtus Velletri", date: "2026-11-01", time: "18:00", location: "Palaiaia Via Pedemontana Stella 223 Palestrina (Rm)", category: "DR1" }
   - { title: "Virtus Velletri vs Basket Genzano", date: "2026-11-07", time: "18:30", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "DR1" }
