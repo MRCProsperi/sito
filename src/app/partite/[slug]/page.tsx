@@ -175,7 +175,7 @@ export default async function MatchPage({ params }: { params: Promise<{ slug: st
                                     </div>
                                 )}
 
-                                <div className="mb-3 text-sm font-black uppercase tracking-widest text-virtus-blue">{homeTeam.toLowerCase().includes('virtus') ? homeTeam : awayTeam.toLowerCase().includes('virtus') ? awayTeam : 'Virtus Velletri'}</div>
+                                <div className="mb-3 text-sm font-black uppercase tracking-widest text-virtus-blue">{homeTeam.toLowerCase().includes('virtus velletri') ? homeTeam : awayTeam.toLowerCase().includes('virtus velletri') ? awayTeam : 'Virtus Velletri'}</div>
                                 <table className="w-full text-left">
                                     <thead>
                                         <tr className="text-xs font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200">

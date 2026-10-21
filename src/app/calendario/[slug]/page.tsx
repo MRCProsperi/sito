@@ -14,8 +14,8 @@ function outcome(title: string, score?: string): 'V' | 'P' | 'N' | null {
     const [home = '', away = ''] = title.split(/\s+vs\.?\s+/i);
     if (!m || !home || !away) return null;
     const [h, a] = [Number(m[1]), Number(m[2])];
-    const virtusHome = home.toLowerCase().includes('virtus');
-    const virtusAway = away.toLowerCase().includes('virtus');
+    const virtusHome = home.toLowerCase().includes('virtus velletri');
+    const virtusAway = away.toLowerCase().includes('virtus velletri');
     if (virtusHome === virtusAway) return null;
     if (h === a) return 'N';
     return (h > a) === virtusHome ? 'V' : 'P';

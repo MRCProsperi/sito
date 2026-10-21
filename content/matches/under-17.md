@@ -2,7 +2,7 @@
 title: Partite U17
 team_slug: under-17
 events:
-  - { title: "Basket San Cesareo vs Virtus Velletri", date: "2026-10-20", time: "17:45", location: "Palestra A. Martinucci Viale Dei Cedri San Cesareo (Rm)", category: "Under 17" }
+  - { title: "Basket San Cesareo vs Virtus Velletri", date: "2026-10-20", time: "17:45", location: "Palestra A. Martinucci Viale Dei Cedri San Cesareo (Rm)", category: "Under 17", score: "55-58", quarters: "7-14, 11-13, 24-6, 13-25", coach: "Massimiliano Ricca", players: [{ number: 0, name: "Samuele Shaho", points: 0 }, { number: 3, name: "Tommaso Capezzone", points: 0 }, { number: 9, name: "Alessandro Astri", points: 0 }, { number: 11, name: "Tommaso Salvatori", points: 8 }, { number: 18, name: "Gabriele Cellucci", points: 2 }, { number: 20, name: "Massimiliano Capezzone", points: 8 }, { number: 23, name: "Alessandro Mingoia", points: 4 }, { number: 31, name: "Valerio Nardini", points: 7 }, { number: 32, name: "Dario Mancini", points: 18 }, { number: 38, name: "Davide Astri", points: 0 }, { number: 41, name: "Lupo Ascanio Albjol Oliveri", points: 11 }, { number: 65, name: "Matteo Spinazzola", points: 0 }] }
   - { title: "Virtus Velletri vs Academy Olimpia", date: "2026-10-23", time: "18:50", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "Under 17" }
   - { title: "Jungle Team Palestrina vs Virtus Velletri", date: "2026-10-31", time: "17:00", location: "Sc. Media V. Flacco Via Di Valle Zampea 2 Palestrina (Rm)", category: "Under 17" }
   - { title: "Virtus Velletri vs Olimpia Roma S.Venanzio", date: "2026-11-06", time: "18:50", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "Under 17" }

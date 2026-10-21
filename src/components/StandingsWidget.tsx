@@ -113,7 +113,7 @@ export default function StandingsWidget({ standings, title = "Classifica", group
                             </thead>
                             <tbody>
                                 {displayStandings.map((row) => { // Key logic moved to ensure uniqueness if needed, but index is fine here within the isolated table
-                                    const isVirtus = row.team.toLowerCase().includes("virtus");
+                                    const isVirtus = row.team.toLowerCase().includes("virtus velletri");
                                     return (
                                         <tr
                                             key={`${row.team}-${row.rank}`}
