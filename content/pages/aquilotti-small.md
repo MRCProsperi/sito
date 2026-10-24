@@ -68,6 +68,10 @@ roster:
     position: "Aquilotti Small"
     year: "2017"
     image: "/images/imm_3.png"
+  - name: "Giovanni"
+    position: "Aquilotti Small"
+    year: "2017"
+    image: "/images/imm_4.png"
 standings: []
 calendar: []
 category: "Minibasket"

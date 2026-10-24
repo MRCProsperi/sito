@@ -82,6 +82,10 @@ roster:
     position: "Pulcini"
     year: "2022"
     image: "/images/imm_6.png"
+  - name: "Noah"
+    position: "Pulcini"
+    year: "2020"
+    image: "/images/imm_7.png"
 standings:
   - rank: 1
     team: "Virtus Pulcini"

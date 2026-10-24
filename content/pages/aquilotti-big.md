@@ -79,6 +79,14 @@ roster:
     position: "Aquilotti Big"
     year: "2016"
     image: "/images/imm_5.png"
+  - name: "Cristian"
+    position: "Aquilotti Big"
+    year: "2016"
+    image: "/images/imm_6.png"
+  - name: "Michele"
+    position: "Aquilotti Big"
+    year: "2016"
+    image: "/images/imm_7.png"
 standings: []
 calendar: []
 category: "Minibasket"

@@ -53,6 +53,10 @@ roster:
     position: "Scoiattoli Small Blu"
     year: "2018"
     image: "/images/imm_1.png"
+  - name: "Rajen Lushaj"
+    position: "Scoiattoli Small Blu"
+    year: "2018"
+    image: "/images/imm_2.png"
 standings: []
 calendar: []
 category: "Minibasket"
