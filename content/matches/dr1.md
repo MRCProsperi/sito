@@ -46,7 +46,29 @@ events:
       - { number: 23, name: "Fehmi Abassi", points: 4, starter: true }
       - { number: 24, name: "Valerio Nardini", points: 0 }
       - { number: 73, name: "Tommaso Locati", points: 0 }
-  - { title: "Virtus Velletri vs APDB Roma", date: "2026-10-24", time: "18:30", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "DR1" }
+  - title: "Virtus Velletri vs APDB Roma"
+    date: "2026-10-24"
+    time: "18:30"
+    location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)"
+    category: "DR1"
+    score: "50-52"
+    quarters: "17-15, 10-9, 12-15, 11-13"
+    coach: "Luca Mei"
+    assistantCoach: "Claudio Pesoli"
+    officials: ["Stefano Cerini", "Tania Di Clemente"]
+    players:
+      - { number: 2, name: "Federico Podeschi", points: 3 }
+      - { number: 3, name: "Andrea Borro", points: 3 }
+      - { number: 8, name: "Dario Mancini", points: 0 }
+      - { number: 9, name: "Raffaele Sica", points: 1 }
+      - { number: 12, name: "Filippo Locati", points: 12 }
+      - { number: 14, name: "Lorenzo Marinelli", points: 7 }
+      - { number: 15, name: "Alessandro Di Leo", points: 15 }
+      - { number: 16, name: "Tommaso Salvatori", points: 0 }
+      - { number: 17, name: "Luca Battista", points: 2 }
+      - { number: 20, name: "Carmine Nardi", points: 5 }
+      - { number: 23, name: "Fehmi Abassi", points: 2 }
+      - { number: 73, name: "Tommaso Locati", points: 0 }
   - { title: "Basket Palestrina 1962 vs Virtus Velletri", date: "2026-11-01", time: "18:00", location: "Palaiaia Via Pedemontana Stella 223 Palestrina (Rm)", category: "DR1" }
   - { title: "Virtus Velletri vs Basket Genzano", date: "2026-11-07", time: "18:30", location: "Palestra Polivalente Via Del Campo Sportivo Velletri (Rm)", category: "DR1" }
   - { title: "Stelle Marine Basket vs Virtus Velletri", date: "2026-11-15", time: "18:30", location: "Palaassobalneari Piazza Regina Pacis 13 Roma (Rm)", category: "DR1" }
